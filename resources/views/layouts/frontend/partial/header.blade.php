@@ -46,8 +46,8 @@
  <nav class="navbar">
 
     <div class="brand_logo">
-        <a href="../assignment-help/index.html">
-            <img src="{{ asset('assets/frontend/css/home/images/logo.png')}}" alt="">
+        <a href="{{route('home')}}">
+            <img src="{{ asset('assets/frontend/css/home/images/logo.png')}}" width="160" height="60" alt="">
         </a>
     </div>
 
@@ -61,9 +61,9 @@
         <a href="{{route('home')}}"><li>Home</li></a>
         <a href="{{route('about.show')}}"><li>About Us</li></a>
         <a href="{{route('blog')}}"><li>Blogs</li></a>
-        {{-- <a href="Reviews/Reviews Page.html"><li>Reviews</li></a> --}}
+      
         <a href="{{route('contact.show')}}"><li>Contact Us</li></a>
-        <a href="#order"><button>Order Now</button></a>
+        <a href="{{route('home')}}#order"><button>Order Now</button></a>
         {{-- <button>Order Now</button> --}}
 
    </ul>

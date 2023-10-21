@@ -15,12 +15,14 @@
     <div class="list_second">
         <h3>Company</h3>
         <span>
-            <a href="index.html">Home</a>
-            <a href="About us/About us.html">About Us</a>
-            <a href="Blogs/Blog Page.html">Blogs</a>
-            <a href="Reviews/Reviews Page.html">Reviews</a>
-            <a href="Contact Us/Contact-Us.html">Contact Us</a>
-            <a href="index.html">Order Now</a>
+            
+        
+            <a href="{{route('home')}}">Home</a>
+            <a href="{{route('about.show')}}">About Us</a>
+            <a href="{{route('blog')}}">Blogs</a>
+     
+            <a href="{{route('contact.show')}}">Contact Us</a>
+            <a href="{{route('home')}}#order">Order Now</a>
         </span>
     </div>
 

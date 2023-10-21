@@ -83,10 +83,10 @@
     <h1>Explore Our Blogs</h1>
     <div class="blog_content">
         <div class="cards">
-            @foreach ($posts as $item)
+            @foreach ($posts->reverse() as $item)
             <div class="card">
                 <div class="card_img">
-                    <a href="{{ route('blog.show', ['slug' => $item->slug]) }}"> <img src="{{ asset('assets/frontend/css/blog/image/1.png') }}"  alt="" width="300px" height="200px"></a>
+                    <a href="{{ route('blog.show', ['slug' => $item->slug]) }}"> <img src="/image/{{ $item->image }}" width="300px" height="200px"></a>
                     {{-- <p>admin on {{$item->created_at}}</p> --}}
                 </div>
                 <h1 href="">{{$item->title}}</h1>

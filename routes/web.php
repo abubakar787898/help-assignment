@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 
 use App\Http\Controllers\Admin\DeadLineController;
@@ -38,6 +39,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('order-submit', [App\Http\Controllers\UserOrderController::class, 'store'])->name('order-submit');
+Route::post('contact-us', [App\Http\Controllers\ContactUsController::class, 'store'])->name('contact-us');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']], function (){
@@ -54,6 +56,9 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']], function
     Route::resource('paper_types', PaperTypeController::class);
     Route::resource('reference_styles', ReferenceStyleController::class);
     Route::resource('subjects', SubjectController::class);
+    Route::resource('contacts', ContactUsController::class);
+    Route::get('download/{id}',[OrderController::class, 'download'])->name('download');
+   
 
     // Route::get('settings','SettingsController@index')->name('settings');
     // Route::put('profile-update','SettingsController@updateProfile')->name('profile.update');
@@ -66,7 +71,6 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']], function
     // Route::get('/pending/post','PostController@pending')->name('post.pending');
     // Route::put('/post/{id}/approve','PostController@approval')->name('post.approve');
 
-    // Route::get('/favorite','FavoriteController@index')->name('favorite.index');
 
     // Route::get('authors','AuthorController@index')->name('author.index');
     // Route::delete('authors/{id}','AuthorController@destroy')->name('author.destroy');

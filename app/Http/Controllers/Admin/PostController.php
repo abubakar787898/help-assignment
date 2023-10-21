@@ -61,29 +61,40 @@ class PostController extends Controller
         ]);
         $image = $request->file('image');
         $slug = str_slug($request->title);
-        if(isset($image))
-        {
+        if (isset($image)) {
+
+            $destinationPath = 'image/';
+
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+
+            $image->move($destinationPath, $profileImage);
             // make unique name for image
-            $currentDate = Carbon::now()->toDateString();
-            $imageName  = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            // $currentDate = Carbon::now()->toDateString();
+            // $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.jpg';
         
-            if(!Storage::disk('public')->exists('post'))
-            {
-                Storage::disk('public')->makeDirectory('post');
-            }
+            // if (!Storage::disk('public')->exists('post')) {
+            //     Storage::disk('public')->makeDirectory('post');
+            // }
         
-            $postImage = Image::make($image)->resize(1600,1066)->encode('jpg');
+            // $postImage = Image::make($image)->resize(1600, 1066)->encode('jpg');
         
-            Storage::disk('public')->put('post/'.$imageName, $postImage->stream());
+            // // Store the image and get the full path
+            // $filePath = 'post/' . $imageName;
+            // Storage::disk('public')->put($filePath, $postImage->stream());
+        
+            
+            // // Get the full URL
+            // $fullPath = Storage::disk('public')->url($filePath);
         
         } else {
-            $imageName = "default.png";
+            $profileImage = "default.png";
+            $fullPath = ''; // or whatever default value you want
         }
         $post = new Post();
         // $post->user_id = Auth::id();
         $post->title = $request->title;
         $post->slug = $slug;
-        $post->image = $imageName;
+        $post->image = $profileImage;
         $post->body = $request->body;
         if(isset($request->status))
         {
@@ -116,6 +127,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        
         return view('admin.post.show',compact('post'));
     }
 
@@ -152,52 +164,36 @@ class PostController extends Controller
         $image = $request->file('image');
         $slug = str_slug($request->title);
         
-        if(isset($image))
-        {
+     
+        if (isset($image)) {
+
+            $destinationPath = 'image/';
+
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+
+            $image->move($destinationPath, $profileImage);
             // make unique name for image
-            $currentDate = Carbon::now()->toDateString();
-            $imageName  = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            // $currentDate = Carbon::now()->toDateString();
+            // $imageName = $slug.'-'.$currentDate.'-'.uniqid().'.jpg';
         
-            // if(!Storage::disk('public')->exists('post'))
-            // {
+            // if (!Storage::disk('public')->exists('post')) {
             //     Storage::disk('public')->makeDirectory('post');
             // }
         
-            $postImage = Image::make($image)->resize(1600,1066)->encode('jpg');
-        // return $postImage;
-            Storage::disk('public')->put('post/'.$imageName, $postImage->stream());
-         
-            
+            // $postImage = Image::make($image)->resize(1600, 1066)->encode('jpg');
         
-        } else {
-            $imageName = "default.png";
-        }
-//         if(isset($image))
-//         {
-// //            make unipue name for image
-//             $currentDate = Carbon::now()->toDateString();
-//             $imageName  = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
-
-//             if(!Storage::disk('public')->exists('post'))
-//             {
-//                 Storage::disk('public')->makeDirectory('post');
-//             }
-// //            delete old post image
-//             if(Storage::disk('public')->exists('post/'.$post->image))
-//             {
-//                 Storage::disk('public')->delete('post/'.$post->image);
-//             }
-//             $postImage = Image::make($image)->resize(1600,1066)->save();
-//             Storage::disk('public')->put('post/'.$imageName,$postImage);
-
-//         } else {
-//             $imageName = $post->image;
-//         }
-
-        // $post->user_id = Auth::id();
+            // // Store the image and get the full path
+            // $filePath = 'post/' . $imageName;
+            // Storage::disk('public')->put($filePath, $postImage->stream());
+        
+            
+            // // Get the full URL
+            // $fullPath = Storage::disk('public')->url($filePath);
+            $post->image = $profileImage;
+        } 
         $post->title = $request->title;
         $post->slug = $slug;
-        $post->image = $imageName;
+       
         $post->body = $request->body;
         if(isset($request->status))
         {
@@ -250,12 +246,16 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        if (Storage::disk('public')->exists('post/'.$post->image))
-        {
-            Storage::disk('public')->delete('post/'.$post->image);
+        $post=Post::find($id);
+        if (isset($post->image)) {
+          unlink(public_path().'/storage/post/'.$post->image);
         }
+        // if (Storage::disk('public')->exists('post/'.$post->image))
+        // {
+        //     Storage::disk('public')->delete('post/'.$post->image);
+        // }
         // $post->categories()->detach();
         // $post->tags()->detach();
         $post->delete();

@@ -57,9 +57,11 @@
                                 <tbody>
                                     @foreach($posts as $key=>$post)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $post->id }}</td>
                                             <td>{{ str_limit($post->title,'10') }}</td>
-                                            {{-- <td>{{ $post->user->name }}</td> --}}
+                                            <td><img src="/image/{{ $post->image }}" width="100px"></td>
+                                            {{-- <td><img src="{{ Storage::disk('public')->url('app/post/'.$post->image) }}" /></td> --}}
+                                            {{-- <td><img src="{{ Storage::disk('public')->url('post/'.$post->image) }}" /></td> --}}
                                             {{-- <td>{{ $post->view_count }}</td> --}}
                                             {{-- <td>
                                                 @if($post->is_approved == true)

@@ -35,7 +35,8 @@
                 <div class="card">
                     
                     <div class="card_img">
-                       <img src="{{ asset('assets/frontend/css/blog/image/1.png') }}"  alt="" >
+                        <img src="/image/{{ $post->image }}" >
+                       {{-- <img src="{{ asset('assets/frontend/css/blog/image/1.png') }}"  alt="" > --}}
                     <p>admin on {{$post->created_at}}</p>
                     </div>
                     <a href="">{{$post->title}}</a>

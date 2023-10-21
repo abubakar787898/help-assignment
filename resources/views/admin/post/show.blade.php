@@ -15,10 +15,10 @@
                 <i class="material-icons">done</i>
                 <span>Approve</span>
             </button>
-            <form method="post" action="{{ route('admin.posts.approve',$post->id) }}" id="approval-form" style="display: none">
+            {{-- <form method="post" action="{{ route('admin.posts.approve',$post->id) }}" id="approval-form" style="display: none">
                 @csrf
                 @method('PUT')
-            </form>
+            </form> --}}
         @else
             <button type="button" class="btn btn-success pull-right" disabled>
                 <i class="material-icons">done</i>
@@ -33,7 +33,7 @@
                         <div class="header">
                             <h2>
                               {{ $post->title }}
-                                <small>Posted By <strong> <a href="">{{ $post->user->name }}</a></strong> on {{ $post->created_at->toFormattedDateString() }}</small>
+                                {{-- <small>Posted By <strong> <a href="">{{ $post->user->name }}</a></strong> on {{ $post->created_at->toFormattedDateString() }}</small> --}}
                             </h2>
                         </div>
                         <div class="body">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="header bg-cyan">
                             <h2>
                                 Categoryies
@@ -53,18 +53,18 @@
                                 <span class="label bg-cyan">{{ $category->name }}</span>
                             @endforeach
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="card">
                         <div class="header bg-green">
                             <h2>
                                 Tags
                             </h2>
                         </div>
-                        <div class="body">
+                        {{-- <div class="body">
                             @foreach($post->tags as $tag)
                                 <span class="label bg-green">{{ $tag->name }}</span>
                             @endforeach
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="card">
                         <div class="header bg-amber">
@@ -73,7 +73,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <img class="img-responsive thumbnail" src="{{ Storage::disk('public')->url('post/'.$post->image) }}" alt="">
+                            <img class="img-responsive thumbnail" src="/image/{{ $post->image }}" alt="">
                         </div>
                     </div>
 

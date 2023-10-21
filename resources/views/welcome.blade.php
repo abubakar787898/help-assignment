@@ -22,13 +22,14 @@
         <div class="hero_content">
 
             <div class="hero_title">
-                <h1>🚀 Welcome to [Your Assignment Help Service] - Your Academic Success Partner! 🎓</h1>
+                <h1>🚀 Welcome to <span>Assignment Art</span> - Your Academic Success Partner! 🎓</h1>
 
                     <h2>Embark on a journey of excellence with our expert assignment help. We don't just meet expectations; we exceed them.</h2>
             </div>
 
             <div class="hero_btn">
-                <a href="#"><button>Live Chat</button></a>
+
+                <a ><button id="showTawkTo">Live Chat</button></a>
                 <a href="https://api.whatsapp.com/send?phone=923356282834" target="_blank"><button>WhatsApp</button></a>
             </div>
         </div>
@@ -161,14 +162,14 @@
 
                 <span>
                     <h4>Attach File
-                        <small>(max file attach : 10 | max file size : 25Mb)</small>
+                        <small>(max file attach : 1 or make zip file | max file size : 25Mb)</small>
                     </h4>
-                    <p>Press <span>Ctrl</span> to select multiple files</p>
+                   
                 </span>
     
     
                     <label for="myfile"></label>
-                    <input type="file" id="myfile" name="myfile" multiple>
+                    <input type="file" id="myfile" name="myfile" >
               
     
             </div>
@@ -601,7 +602,7 @@
     
           <div class="join_perk">
             <h2>
-              <a href="#">Connect Now</a>
+              {{-- <a href="#">Connect Now</a> --}}
               & Get The Best Assignment Help Online!
             </h2>
           </div>

@@ -41,7 +41,7 @@
                                     <th>Education Level</th>
                                     <th>Reference Style</th>
                                     <th>Created At</th>
-                                    <th>Updated At</th>
+                                    <th>File</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -58,14 +58,17 @@
                                     <th>Education Level</th>
                                     <th>Reference Style</th>
                                     <th>Created At</th>
-                                    <th>Updated At</th>
+                                    <th>File</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
+                                  
                                     @foreach($orders as $key=>$order)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                      
+                                            {{-- <td>{{ $key + 1 }}</td> --}}
+                                            <td>{{ $order->id }}</td>
                                             <td>{{ $order->topic }}</td>
                                             <td>{{ $order->no_of_reference }}</td>
                                             <td>{{ $order->noword->name }}</td>
@@ -76,10 +79,16 @@
                                             <td>{{ $order->education->name }}</td>
                                             <td>{{ $order->reference->name }}</td>
                                             <td>{{ $order->created_at }}</td>
-                                            <td>{{ $order->updated_at }}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.orders.edit',$order->id) }}" class="btn btn-info waves-effect">
+                                                <a href="{{ route('admin.download', ['id' => $order->id]) }}" class="btn btn-info waves-effect">
+                                                    <i class="material-icons">cloud_download</i>
+                                                </a>
+                                            </td>
+                                            
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.orders.edit',$order->id) }}" class="btn btn-primary waves-effect">
                                                     <i class="material-icons">edit</i>
+
                                                 </a>
                                                 <button class="btn btn-danger waves-effect" type="button" onclick="deleteDeadLine({{ $order->id }})">
                                                     <i class="material-icons">delete</i>

@@ -95,6 +95,12 @@
                         <span>Subject</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.contacts.index') }}">
+                        <i class="material-icons">photo_album</i>
+                        <span>Contact </span>
+                    </a>
+                </li>
                 {{-- <li class="{{ Request::is('admin/pending/post') ? 'active' : '' }}">
                     <a href="{{ route('admin.post.pending') }}">
                         <i class="material-icons">library_books</i>
