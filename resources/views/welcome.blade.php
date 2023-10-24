@@ -29,8 +29,8 @@
 
             <div class="hero_btn">
 
-                <a ><button id="showTawkTo">Live Chat</button></a>
-                <a href="https://api.whatsapp.com/send?phone=923356282834" target="_blank"><button>WhatsApp</button></a>
+                <a href="javascript:void(Tawk_API.toggle())" ><button  id="showTawkTo">Live Chat</button></a>
+                <a href="https://api.whatsapp.com/send?phone=971569715043" target="_blank"><button>WhatsApp</button></a>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
                 <div class="form-first">
                 <span>
                     <label for="text">Paper Topic:</label>
-                    <input type="text" name="topic" placeholder="Write Your Topic">
+                    <input type="text" name="topic" placeholder="Write Your Topic" required>
                 </span>
 
                 <span>
@@ -100,7 +100,7 @@
                 <div class="form-first">
                     <span>
                         <label for="papertype">Paper Type:</label>
-                        <select name="paper_type_id" id="papertype" >
+                        <select name="paper_type_id" id="papertype"  >
                             <option  class="active_one">Paper Type
                           
                                 @foreach($papertypes as $papertype)
@@ -181,12 +181,12 @@
                     <div class="my_detail">
                         <span>
                                 <label for="name">Your Name:</label>
-                                <input type="text" name="user_name" id="name" placeholder="Full Name">
+                                <input type="text" name="user_name" id="name" placeholder="Full Name" required>
                         </span>
         
                         <span>
                             <label for="Country:">Country:</label>
-                            <select name="country" id="Country:">
+                            <select name="country" id="Country:" required>
                                 <option value="" class="active_one">Select Country</option>
                                 <option   value="Afghanistan">Afghanistan</option>    
                                 <option   value="Albania">Albania</option>    
@@ -438,12 +438,12 @@
                     <div class="my_detail">
                         <span>
                                 <label for="email">Your Email:</label>
-                                <input type="text" name="email" id="email" placeholder="Email">
+                                <input type="text" name="email" id="email" placeholder="Email" required>
                         </span>
         
                         <span>
                             <label for="text">Contact Number:</label>
-                            <input type="text" name="mobile" id="text" placeholder="Phone">
+                            <input type="text" name="mobile" id="text" placeholder="Phone" required>
                     </span>
         
                     </div>

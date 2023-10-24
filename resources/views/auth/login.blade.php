@@ -1,4 +1,4 @@
-@extends('layouts.frontend.app')
+@extends('layouts.app')
 
 @section('title','Login')
 
@@ -6,6 +6,16 @@
     <link href="{{ asset('assets/frontend/css/auth/styles.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/frontend/css/auth/responsive.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <!-- Stylesheets -->
+
+    <link href="{{ asset('assets/frontend/css/bootstrap.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/css/swiper.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('assets/frontend/css/ionicons.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')

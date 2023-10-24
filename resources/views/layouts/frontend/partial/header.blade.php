@@ -37,9 +37,9 @@
 {{-- </header> --}}
 
 <div class="top_header">
-    <p>Welcome To Assignment-Help Pakistan</p>
-    <p>0333-5563-888</p>
-    <p>info@Assignment-Help.pk</p>
+    <p>Welcome To Assignment-ART UAE</p>
+    <p>+971569715043</p>
+    <p>assignmentart.com</p>
 </div>
 
  <!-- navbar -->

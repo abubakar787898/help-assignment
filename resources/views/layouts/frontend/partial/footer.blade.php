@@ -1,15 +1,15 @@
 <div class="footer_end">
     <div class="list_first">
         <h3>Disclaimer</h3>
-        <p>Assignmenthelp.com.pk is the<br>
-            custom online academic help<br>
-            providing service. We just want to<br>
-            provide the help to the students<br>
-            and our papers should be used for<br>
-            the reference purpose only.<br>
-            Nobody is allowed to use our<br>
-            papers for the commercial<br>
-            purpose or without the reference.</p>
+        <p>AssignmentArt.com is the custom online <br>
+            academic help provider based in Dubai. <br>
+            Our mission is to assist students in <br>
+            their academic journey, offering valuable<br>
+            resources and guidance. Please note that our <br>
+            papers are intended for reference purposes only.<br>
+            Commercial use or using our papers without proper<br>
+            citation is strictly prohibited.<br>
+            </p>
     </div>
 
     <div class="list_second">
@@ -50,5 +50,5 @@
     
 </div>
 <div class="footer_bottom">
-    <p>© 2023 assignmenthelp.com.pk. All Rights Reserved.</p>
+    <p>© {{ date("Y") }} assignmentart.com. All Rights Reserved.</p>
 </div>

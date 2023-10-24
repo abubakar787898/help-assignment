@@ -207,7 +207,7 @@
     <div class="legal">
         <div class="copyright">
             &copy;  - {{ date("Y") }} All rights reserved. <br>
-            <strong> Developed &amp; <i class="far fa-heart"></i> by </strong> Assignment
+            <strong> Developed &amp; <i class="far fa-heart"></i> by </strong> Assignment-ART
                         {{-- <a href="https://www.youtube.com/channel/UCwbVAlvrsD2Tpx93bleNbOA" target="_blank">Programming kit</a>. --}}
         </div>
         {{-- <div class="version">
